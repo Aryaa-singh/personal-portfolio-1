@@ -16,31 +16,71 @@ section {
     width: 100%;
 }
 
+/* Tablet */
 @media (max-width: 900px) {
-    section>div[style*="grid-template-columns: repeat(3"] {
-        grid-template-columns: 1fr !important;
+    .app-container {
+        padding: 0 1.5rem;
+    }
+
+    main {
+        gap: 3rem;
     }
 }
 
-@media (max-width: 768px) {
+/* Mobile */
+@media (max-width: 640px) {
     .app-container {
-        padding: 0 1.25rem;
+        padding: 0 1rem;
     }
 
     main {
         gap: 2.5rem;
+        padding: 1rem 0 2rem;
     }
 
     .section-tinted {
-        margin-left: -1.25rem;
-        margin-right: -1.25rem;
-        padding-left: 1.25rem;
-        padding-right: 1.25rem;
+        margin-left: -1rem !important;
+        margin-right: -1rem !important;
+        padding: 2rem 1rem !important;
+        border-radius: 16px !important;
     }
-}
 
-@media (max-width: 640px) {
-    section>div[style*="grid-template-columns: repeat(2"] {
-        grid-template-columns: 1fr !important;
+    h1 {
+        font-size: 1.75rem !important;
+        line-height: 1.25 !important;
+    }
+
+    h2 {
+        font-size: 1.25rem !important;
+    }
+
+    h3 {
+        font-size: 0.9375rem !important;
+    }
+
+    .eyebrow {
+        font-size: 0.6875rem !important;
+    }
+
+    p {
+        font-size: 0.9375rem !important;
+    }
+
+    .btn {
+        padding: 0.625rem 1rem !important;
+        font-size: 0.875rem !important;
+    }
+
+    .icon-box {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .card {
+        padding: 1.25rem 1rem !important;
+    }
+
+    .divider {
+        width: 32px !important;
     }
 }

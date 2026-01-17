@@ -79,13 +79,13 @@ const ImpactCard = ({ item, isActive, onClick, index }) => {
             <div style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.875rem',
+                gap: '0.75rem',
                 marginBottom: isActive ? '1rem' : '0'
             }}>
-                <div className="icon-box" style={{ flexShrink: 0, width: '44px', height: '44px' }}>
+                <div className="icon-box" style={{ flexShrink: 0 }}>
                     {item.icon}
                 </div>
-                <div>
+                <div style={{ minWidth: 0 }}>
                     <h3 style={{ margin: 0, fontSize: '0.9375rem' }}>{item.title}</h3>
                     {!isActive && (
                         <p style={{ margin: 0, fontSize: '0.8125rem', color: 'var(--text-muted)' }}>
@@ -98,7 +98,6 @@ const ImpactCard = ({ item, isActive, onClick, index }) => {
             {isActive && (
                 <div style={{
                     animation: 'fadeUp 0.25s ease-out',
-                    paddingLeft: '3.25rem',
                     fontSize: '0.875rem'
                 }}>
                     <div style={{ marginBottom: '0.875rem' }}>
@@ -135,11 +134,7 @@ const Impact = () => {
                 <h2>Tangible Impact</h2>
             </div>
 
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: '1rem'
-            }}>
+            <div className="impact-grid">
                 {items.map((item, i) => (
                     <ImpactCard
                         key={i}
@@ -150,6 +145,19 @@ const Impact = () => {
                     />
                 ))}
             </div>
+
+            <style>{`
+        .impact-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+        }
+        @media (max-width: 640px) {
+          .impact-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
         </section>
     );
 };

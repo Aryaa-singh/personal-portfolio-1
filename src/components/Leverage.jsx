@@ -21,7 +21,7 @@ const leverageCards = [
             </svg>
         ),
         title: "Supporting High-Stakes Adoption",
-        text: "Staying close during onboarding, go-lives, and early production phases when platforms are most vulnerable."
+        text: "Partnering closely during onboarding, go-lives, and early production phases when platforms are most vulnerable."
     },
     {
         icon: (
@@ -53,11 +53,7 @@ const Leverage = () => {
                 where systems must align with users, processes, and constraints.
             </p>
 
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '1.25rem'
-            }}>
+            <div className="leverage-grid">
                 {leverageCards.map((card, i) => (
                     <div
                         key={i}
@@ -75,6 +71,20 @@ const Leverage = () => {
                     </div>
                 ))}
             </div>
+
+            <style>{`
+        .leverage-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.25rem;
+        }
+        @media (max-width: 768px) {
+          .leverage-grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+          }
+        }
+      `}</style>
         </section>
     );
 };

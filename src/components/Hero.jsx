@@ -8,11 +8,7 @@ const chips = [
 
 const Hero = () => {
     return (
-        <section className="fade-up" style={{
-            paddingTop: '4rem',
-            paddingBottom: '2rem',
-            textAlign: 'center'
-        }}>
+        <section className="fade-up hero-section">
             {/* Abstract system icon */}
             <div style={{ marginBottom: '1.25rem' }}>
                 <svg width="48" height="48" viewBox="0 0 56 56" fill="none" className="icon-pulse">
@@ -35,35 +31,16 @@ const Hero = () => {
                 </span>
             </h1>
 
-            <p style={{
-                margin: '0 auto 1.5rem',
-                fontSize: '1.0625rem',
-                color: 'var(--text-secondary)',
-                maxWidth: '620px'
-            }}>
+            <p className="hero-subtext">
                 I focus on how platforms behave in real-world conditions — where constraints, scale, and long-term reliability shape what success actually looks like, with particular attention to how systems are understood and used, not just how they're designed.
             </p>
 
             {/* Capability Chips */}
-            <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                gap: '0.625rem',
-                flexWrap: 'wrap',
-                marginBottom: '1.5rem'
-            }}>
+            <div className="chips-container">
                 {chips.map((chip, i) => (
                     <span
                         key={i}
-                        className={`fade-up stagger-${i + 1}`}
-                        style={{
-                            padding: '0.4rem 0.875rem',
-                            background: 'var(--accent-light)',
-                            color: 'var(--accent)',
-                            borderRadius: '20px',
-                            fontSize: '0.8125rem',
-                            fontWeight: 500
-                        }}
+                        className={`chip fade-up stagger-${i + 1}`}
                     >
                         {chip}
                     </span>
@@ -71,6 +48,49 @@ const Hero = () => {
             </div>
 
             <div className="divider"></div>
+
+            <style>{`
+        .hero-section {
+          padding-top: 4rem;
+          padding-bottom: 2rem;
+          text-align: center;
+        }
+        .hero-subtext {
+          margin: 0 auto 1.5rem;
+          font-size: 1.0625rem;
+          color: var(--text-secondary);
+          max-width: 620px;
+        }
+        .chips-container {
+          display: flex;
+          justify-content: center;
+          gap: 0.625rem;
+          flex-wrap: wrap;
+          margin-bottom: 1.5rem;
+        }
+        .chip {
+          padding: 0.4rem 0.875rem;
+          background: var(--accent-light);
+          color: var(--accent);
+          border-radius: 20px;
+          font-size: 0.8125rem;
+          font-weight: 500;
+        }
+        @media (max-width: 640px) {
+          .hero-section {
+            padding-top: 2.5rem;
+            padding-bottom: 1.5rem;
+          }
+          .hero-subtext {
+            font-size: 0.9375rem;
+            padding: 0 0.5rem;
+          }
+          .chip {
+            font-size: 0.75rem;
+            padding: 0.35rem 0.75rem;
+          }
+        }
+      `}</style>
         </section>
     );
 };

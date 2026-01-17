@@ -33,44 +33,14 @@ const ContactModal = ({ isOpen, onClose }) => {
 
     return (
         <div
-            style={{
-                position: 'fixed',
-                inset: 0,
-                background: 'rgba(0,0,0,0.5)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                zIndex: 1000,
-                animation: 'fadeIn 0.2s ease-out'
-            }}
+            className="modal-overlay"
             onClick={onClose}
         >
             <div
-                style={{
-                    background: 'white',
-                    borderRadius: '20px',
-                    padding: '2rem',
-                    maxWidth: '380px',
-                    width: '90%',
-                    position: 'relative',
-                    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-                    animation: 'fadeUp 0.3s ease-out'
-                }}
+                className="modal-content"
                 onClick={(e) => e.stopPropagation()}
             >
-                <button
-                    onClick={onClose}
-                    style={{
-                        position: 'absolute',
-                        top: '1rem',
-                        right: '1rem',
-                        background: 'none',
-                        border: 'none',
-                        cursor: 'pointer',
-                        color: 'var(--text-muted)',
-                        padding: '0.25rem'
-                    }}
-                >
+                <button className="modal-close" onClick={onClose}>
                     <CloseIcon />
                 </button>
 
@@ -86,23 +56,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                 </p>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                    <a
-                        href="mailto:singhh.aryaa@gmail.com"
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            gap: '0.625rem',
-                            padding: '0.875rem',
-                            background: 'white',
-                            border: '1px solid var(--border)',
-                            borderRadius: '10px',
-                            color: 'var(--text-primary)',
-                            fontWeight: 500,
-                            textDecoration: 'none',
-                            transition: 'all 0.2s'
-                        }}
-                    >
+                    <a href="mailto:singhh.aryaa@gmail.com" className="modal-btn">
                         <EmailIcon />
                         Email Me
                     </a>
@@ -110,26 +64,71 @@ const ContactModal = ({ isOpen, onClose }) => {
                         href="https://www.linkedin.com/in/arya-singh-186b3620b/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            gap: '0.625rem',
-                            padding: '0.875rem',
-                            background: 'white',
-                            border: '1px solid var(--border)',
-                            borderRadius: '10px',
-                            color: 'var(--text-primary)',
-                            fontWeight: 500,
-                            textDecoration: 'none',
-                            transition: 'all 0.2s'
-                        }}
+                        className="modal-btn"
                     >
                         <LinkedInIcon />
                         LinkedIn
                     </a>
                 </div>
             </div>
+
+            <style>{`
+        .modal-overlay {
+          position: fixed;
+          inset: 0;
+          background: rgba(0,0,0,0.5);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 1000;
+          padding: 1rem;
+          animation: fadeIn 0.2s ease-out;
+        }
+        .modal-content {
+          background: white;
+          border-radius: 20px;
+          padding: 2rem;
+          max-width: 380px;
+          width: 100%;
+          position: relative;
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+          animation: fadeUp 0.3s ease-out;
+        }
+        .modal-close {
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: var(--text-muted);
+          padding: 0.25rem;
+        }
+        .modal-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.625rem;
+          padding: 0.875rem;
+          background: white;
+          border: 1px solid var(--border);
+          border-radius: 10px;
+          color: var(--text-primary);
+          font-weight: 500;
+          text-decoration: none;
+          transition: all 0.2s;
+        }
+        .modal-btn:hover {
+          border-color: var(--accent);
+          background: var(--accent-light);
+        }
+        @media (max-width: 640px) {
+          .modal-content {
+            padding: 1.5rem;
+            border-radius: 16px;
+          }
+        }
+      `}</style>
         </div>
     );
 };
@@ -139,24 +138,13 @@ const Footer = () => {
 
     return (
         <>
-            <footer className="fade-up" style={{
-                textAlign: 'center',
-                paddingTop: '3rem',
-                paddingBottom: '2rem',
-                borderTop: '1px solid var(--border)'
-            }}>
+            <footer className="footer-section fade-up">
                 <span className="eyebrow">Connect</span>
                 <h2 style={{ marginBottom: '1.5rem' }}>
                     Let's Build Customer Value Together
                 </h2>
 
-                <div style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    gap: '1rem',
-                    marginBottom: '2rem'
-                }}>
+                <div className="footer-buttons">
                     <button
                         onClick={() => setModalOpen(true)}
                         className="btn btn-primary"
@@ -182,6 +170,37 @@ const Footer = () => {
                 }}>
                     © Arya Singh
                 </p>
+
+                <style>{`
+          .footer-section {
+            text-align: center;
+            padding-top: 3rem;
+            padding-bottom: 2rem;
+            border-top: 1px solid var(--border);
+          }
+          .footer-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+          }
+          @media (max-width: 640px) {
+            .footer-section {
+              padding-top: 2rem;
+              padding-bottom: 1.5rem;
+            }
+            .footer-buttons {
+              flex-direction: column;
+              gap: 0.75rem;
+            }
+            .footer-buttons .btn {
+              width: 100%;
+              justify-content: center;
+            }
+          }
+        `}</style>
             </footer>
 
             <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />

@@ -41,11 +41,7 @@ const InPractice = () => {
                 <h2>How I Work in Practice</h2>
             </div>
 
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '1.25rem'
-            }}>
+            <div className="practice-grid">
                 {blocks.map((block, i) => (
                     <div
                         key={i}
@@ -63,6 +59,20 @@ const InPractice = () => {
                     </div>
                 ))}
             </div>
+
+            <style>{`
+        .practice-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.25rem;
+        }
+        @media (max-width: 768px) {
+          .practice-grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+          }
+        }
+      `}</style>
         </section>
     );
 };
