@@ -70,6 +70,8 @@ const InPractice = () => {
           .practice-grid {
             grid-template-columns: 1fr;
             gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto;
           }
         }
       `}</style>
